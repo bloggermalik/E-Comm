@@ -1,0 +1,1 @@
+web: gunicorn customAuth.wsgi --log.file
