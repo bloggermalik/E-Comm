@@ -1,0 +1,33 @@
+{% load static %}
+    <style>
+     html {
+  position: relative;
+  min-height: 100%;
+  padding-bottom:160px;
+}
+body {
+  margin-bottom: 160px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 160px;
+}
+    </style>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mb-0 absolute">
+      <p class="col-md-4 mb-0 text-muted">&copy; 2022 Rakshak, Inc</p>
+  
+      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="{% static 'images/logo_footer.png' %}"></img>
+      </a>
+  
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Home</a></li>
+      </ul>
+    </footer>
+
+
+
+  

@@ -1,0 +1,55 @@
+{% extends 'myauth/layouts/main.html' %}
+{% block title %} Rakshark- Register {% endblock title %}
+{% block content %}
+
+<div class="conainer mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 col-sm-10 col-10" style="margin-top: 50px;">
+            <div class="">
+                <div class="card mt-3 shadow">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="text-center">
+                                <h4>Create an Account</h4>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for ="">Phone:</label>
+                                {{form.phone}}
+                                {% if form.errors.phone %}
+                                    <label class="text-danger">{{form.errors.phone}} </label>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for ="">Email:</label>
+                                {{form.email}}
+                                {% if form.errors.email %}
+                                    <label class="text-danger">{{form.errors.email}} </label>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for ="">Password:</label>
+                                {{form.password1}}
+                                {% if form.errors.password1 %}
+                                <label class="text-danger">{{form.errors.password1}} </label>
+                            {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for ="">Confirm Password:</label>
+                                {{form.password2}}
+                                {% if form.errors.password2 %}
+                                <label class="text-danger">{{form.errors.password2}} </label>
+                            {% endif %}
+                            </div>
+                            <div class="d-grid gap-2 col-3 mx-auto">
+                            <button type="submit" class="btn float-end shadow btn-success px-4">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

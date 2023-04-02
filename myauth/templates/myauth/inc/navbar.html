@@ -1,0 +1,46 @@
+{% load static %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg" style="background-color:#8a1384 ;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/site_logo.png' %}" alt="Bootstrap" >
+    </a>
+
+    <div class="offcanvas offcanvas-end text-bg-dark w-50" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5>Rakshak</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item textsuccess">
+            <a class="nav-link color" href="{% url 'collections' %}" style="color: white; font-size: 20px;">Products</a>
+          </li>
+        {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link"  href="{% url 'myorders' %}" style="color: white; font-size: 20px;">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}" style="color: white; font-size: 20px;">Logout</a>
+          </li
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}" style="color: white; font-size: 20px;">Create Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'loginpage' %}" style="color: white; font-size: 20px;">Login</a>
+          </li>
+          {% endif %}
+      
+        </ul>
+      
+      </div>
+    </div>
+    <a href="{% url 'cart' %}">
+    <i class="fa fa-shopping-cart fa-lg"  style="color:white !important" aria-hidden="true"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>

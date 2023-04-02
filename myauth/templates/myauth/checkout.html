@@ -1,0 +1,116 @@
+{% extends 'myauth/layouts/main.html' %}
+{% block title %}Checkout{% endblock title %}
+{% block content %}
+
+<div class="py-3 bg-primary">
+    <div class="container">
+        <a href="{% url 'home' %}" class="text-white">Home /</a>
+        <a href="{% url 'checkout' %}" class="text-white">Checkout</a>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <form action="{% url 'placeorder' %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card shadow checkoutform">
+                    <div class="card-body">
+                        <h6>Basic Details</h6><hr>
+                        <div class="row">
+                            <div class="col-md-6 mt-2">
+                                <lable>First Name</lable>
+                                <input type="text" required class="form-control" value="{{request.user.first_name}}" name="fname" placeholder="Enter first name">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <lable>Last Name</lable>
+                                <input type="text" required class="form-control" value="{{request.user.last_name}}" name="lname" placeholder="Enter last name">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <lable>Email</lable>
+                                <input type="text" required class="form-control" value="{{user.email}}" name="email" placeholder="Enter Email">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <lable>Phone</lable>
+                                <input type="text" required class="form-control" value="{{request.user.phone}}" name="phone" placeholder="Enter Phone">
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <lable>Address</lable>
+                                <input type="text" required class="form-control" name="address" placeholder="Enter Address">{{userprofile.address}}</input>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <lable>City</lable>
+                                <input type="text" required class="form-control" value="{{userprofile.city}}" name="city" placeholder="Enter City">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <lable>State</lable>
+                                <input type="text" required class="form-control" value="{{userprofile.state}}" name="state" placeholder="Enter State">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <lable>Country</lable>
+                                <input type="text" required class="form-control" value="{{userprofile.country}}" name="country" placeholder="Enter Country">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <lable>Pin Code</lable>
+                                <input type="text" required class="form-control" value="{{userprofile.pincode}}" name="pincode" placeholder="Enter Pin Code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h6>Order Summary </h6><hr>
+                        {% if cartitems %}
+                            <table class="table table-stripeds table-bordereds">
+                                <thead>
+                                    <tr>
+                                        <th> Product</th>
+                                        <th> Qty</th>
+                                        <th> Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in cartitems %}
+                                    <tr>
+
+                                    <td><img src="{{item.product.product_image.url}}" height="50px" width="50px" class="me-2">
+                                        {{item.product.name}}</td> 
+                                    <td>{{item.product_qty}}</td> 
+                                    <td>{{item.product.selling_price|stringformat:"d"}}</td> 
+                                    </tr>
+                                    
+                                    {% endfor %}
+                                </tbody>
+                        </table>
+                        <h6 class="fw-blod">Grand Total 
+                            <span class="float-end">
+                                Rs {{total_price|stringformat:"d"}}
+                            </span>
+                        </h6>
+                        <input type="hidden" value="COD" name="payment_mode">
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-success w-100"> COD | Place Order </button>
+                            <button type="button" class="btn btn-primary payWithRazorpay w-100 mt-2"> Pay Online </button>
+                        </div>
+                        {% else %}
+                        <h4>Your Cart is empty
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    <form>
+</div>
+
+
+{% endblock content %} 
+
+{% block script %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{% endblock script %}
+

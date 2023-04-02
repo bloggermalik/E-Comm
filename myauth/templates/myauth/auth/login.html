@@ -1,0 +1,36 @@
+{% extends 'myauth/layouts/main.html' %}
+{% block title %} Rakshak -Login {% endblock title %}
+{% block content %}
+
+<div class="conainer mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 col-lg-4 col-sm-10 col-10" style="margin-top: 70px;">
+            <div class="">
+                <div class="card mt-6 shadow">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="text-center">
+                                <h4>Login the account</h4>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for ="">Phone:</label>
+                                <input type="number" class="form-control" name="phone" placeholder="Enter Mobile No"
+                            </div>
+                            <div class="form-group">
+                                <label for ="">Password:</label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter Password"
+                            </div>
+                            <div class="d-grid gap-2 col-3 mx-auto">
+                            <button type="submit" class="btn float-end shadow btn-success mt-3 px-4">Login</button>
+                            <a href="{% url 'password_reset' %}" style="width: 118px; text-decoration: underline;">Forget Password</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,104 @@
+{% extends 'myauth/layouts/main.html' %}
+{% block title %}Rakshark- Your Best Friend{% endblock title %}
+{% block content %}
+{% load static %}
+{% include 'myauth/inc/slider.html' %}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            <h1>Our Specialised Amulets and Talisman</h1>
+            <hr>
+            <div class="row">
+                {% for item in category %}
+                <div class="col-md-3 shadow mt-2 border rounded">
+                    <div class="card border-0">
+                        <a href="{% url 'collectionsview' item.slug %}" <div class="card-body">
+                            <div class="category-image">
+                                <img src="{{item.image.url}}" alt="category image"
+                                    class="img-fluid rounded-circle mx-auto d-block w-50" />
+                            </div>
+                            <h4 class="text-center mt-4">{{item.name}}</h4>
+                    </div>
+                    </a>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center">
+    <hr>
+    <h1 class="text-center"><i> What our happy customer say about</i></h1>
+    <div class="row">
+        <div class="col">
+            <div class="container text-center">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade mt-3" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active border-0">
+                            <!-- Crousal Item -->
+                            <div class="card mb-3 border-0" style="border: none;">
+                                <div class="row g-0 border-0" style="display: flex; align-items: center;">
+                                    <div class="col-md-2">
+                                        <img src="{% static 'images/pass.jpg' %}" class="img-fluid rounded-circle mt-3"
+                                            alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <p class="card-text">Wow, what a fantastic service you provide! I appreciate all of your team's hard work. Due to my marriage, I was quite sad, but your talisman has been a great assistance to me. Thanks to your enchanted talisman, I am now enjoying my happy marriage. Salute; you have gained a new fan in me. Continue your work and assist individuals like me.</p>
+                                            <footer class="blockquote-footer float-end">By :-<cite title="Source Title">Bhavya Gupta</cite></footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item active">
+                            <!-- Crousal Item -->
+                            <div class="card mb-3" style="border: none;">
+                                <div class="row g-0" style="display: flex; align-items: center;">
+                                    <div class="col-md-2">
+                                        <img src="{% static 'images/pass1.jpg' %}" class="img-fluid rounded-circle mt-3"
+                                            alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <p class="card-text">Hello Brother. I just want to let you know that you are assisting those who are struggling. To me, you are an angel. Your talisman gave me strength when there seemed to be no hope for me. I had a serious business failure. As a result, I am carrying heavy burdens. I was in complete desperation and lost control of the circumstance. It started displaying the outcomes on day one. My entire loan is now paid in full. I'm overjoyed. I greatly appreciate it.</p>
+                                            <footer class="blockquote-footer float-end">By :-<cite title="Source Title">Shubham Arora</cite></footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item active">
+                            <!-- Crousal Item -->
+                            <div class="card mb-3" style="border: none;">
+                                <div class="row g-0" style="display: flex; align-items: center;">
+                                    <div class="col-md-2">
+                                        <img src="{% static 'images/pass2.jpg' %}" class="img-fluid rounded-circle mt-3"
+                                            alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <p class="card-text">मैं आपका बहुत धन्यवाद करता हूं इस अच्छे काम को करने के लिए आप बहुत अच्छा काम कर रहे हैं और आपके ताबीज बहुत असरदार हैं मैं एक लड़की से प्यार करता था वह मुझे पसंद नहीं करती थी मैं उसे सच्चे मन से पाना चाहता था शादी करना चाहता था पर वह राजी नहीं थी आपके ताबीज ने बहुत मदद की आज मैं उसी लड़की के साथ हूं हमारी शादी हो चुकी है शादी को 1 साल हो गया है और मैं बहुत खुश हूं मैं चाहता हूं मेरी तरह जितने भी परेशान लोग हैं सब आपकी इस सेवा का लाभ उठाएं और अपनी परेशानी का खात्मा करें मैं आपका बहुत-बहुत शुक्रिया करता हूं</p>
+                                            <footer class="blockquote-footer float-end">By :-<cite title="Source Title">Sultan</cite></footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

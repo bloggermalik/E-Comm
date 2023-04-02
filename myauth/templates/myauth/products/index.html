@@ -1,0 +1,42 @@
+{% extends 'myauth/layouts/main.html' %}
+{% block title %}{{category.name}} {% endblock title %}
+{% block content %}
+
+<div class="py-3 bg-primary mt-3">
+    <div class="container">
+        <a href="{% url 'home' %}" class="text-white">Home /</a>
+        <a href="{% url 'collections' %}" class="text-white">Collections /</a>
+        <a href="{% url 'collectionsview' category.slug %}" class="text-white">{{category.name}}</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mt-3">{{category.name}}</h1>
+            <div class="row">
+                {% for item in products %}
+                <div class="col-md-3">
+                    <div class="card m-2 border-0">
+                        <a href="{% url 'productview' item.category.slug item.slug %}">
+                            <div class="card-body shadow ">
+                                <div class="category-image">
+                                    <img src="{{item.product_image.url}}" alt="Product image" class="w-100 rounded-circle" />
+                                </div>
+                                    <hr>
+                                <h4 class="text-center mt-3" style="color: #1d211e;">{{item.name}}</h4><hr>
+                                <div class="d-flex justify-content-center">
+                                    <span class="float-start h3 text-dark">&#8377; {{item.selling_price | stringformat:'d'}}
+                                    </span>
+                                    <span class="float text-muted mt-1"> &nbsp; &#8377;<strike>{{item.original_price|stringformat:'d'}}</strike></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
