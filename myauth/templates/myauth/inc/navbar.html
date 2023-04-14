@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg" style="background-color:#8a1384 ;">
+<nav class="navbar shadow navbar-expand-md navbar-dark fixed-top bg" style="background-color:#8a1384 ;">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home' %}">
       <img src="{% static 'images/site_logo.png' %}" alt="Bootstrap" >
@@ -38,9 +38,10 @@
       </div>
     </div>
     <a href="{% url 'cart' %}">
-    <i class="fa fa-shopping-cart fa-lg"  style="color:white !important" aria-hidden="true"></i></a>
+    <i class="fa fa-shopping-cart fa-lg"  style="color:white !important" aria-hidden="true"></i><span id="cart-total-quantity" style="display: inline-block;border-radius: 50%;background-color: #ff7777;color: #fff;text-align: center;font-size: 12px;width: 20px;height: 20px;line-height: 20px;position: relative;top: -9px;">{{total_qty}}</span> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
+      
     </button>
   </div>
 </nav>

@@ -10,7 +10,7 @@
 </div>
 
 <div class="py-5">
-    <div class="container">
+    <div class="container-fluid" style="max-width: 800px;">
         <div class="row">
             <div class="col-md-12">
                 <div class="card shadow">
@@ -18,16 +18,16 @@
                        {% if cart  %}
                             {% for item in cart %}
                                 <div class ="row product_data">
-                                    <div class="col-md-2 my-auto">
+                                    <div class="col-md-2 col-sm-2 col-4" style="margin-bottom: 10px;">
                                         <img src="{{ item.product.product_image.url }}" height ="70px" width="70px" alt="Image here">
                                     </div>
-                                    <div class="col-md-3 my-auto">
+                                    <div class="col-md-3 col-sm-3 col-4 my-auto">
                                         <h6>{{ item.product.name }}</h6>
                                     </div>
-                                    <div class="col-md-2 my-auto">
+                                    <div class="col-md-2 col-sm-1 col-4 my-auto">
                                         <h6>Rs {{ item.product.selling_price|stringformat:"d" }}</h6>
                                     </div>
-                                    <div class="col-md-3 my-auto">
+                                    <div class="col-md-3 col-sm-3 col-8 my-auto">
                                         <input type="hidden" class="prod_id" value="{{ item.product_id }}">
                                         {% csrf_token %}
                                         {% if item.product.quantity >= item.product_qty %}
@@ -41,10 +41,11 @@
                                         <h6>Out of Stock </h6>
                                         {% endif %}
                                      </div>
-                                     <div class="col-md-2 my-auto">
+                                     <div class="col-md-2 col-sm-3 col-4  my-auto">
                                         <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i>Remove</button>
                                     </div>
                                 </div>
+                                <hr>
                             {% endfor %}
 
                             <a href="{% url 'checkout' %}" class="btn btn-outline-success float-end">Checkout </a>

@@ -7,13 +7,21 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login, logout
 from django.contrib.auth import views as auth_views
+from django.db.models import Sum
 # Create your views here.
+
 def home(request):
     category = Category.objects.filter(status = 0)
+    total_qty = Cart.objects.filter(user=request.user.id).aggregate(Sum('product_qty'))['product_qty__sum'] or 0
     context = {
-        "category":category
+        "category":category,
+        "total_qty":total_qty,
     }
     return render(request, "myauth/index.html", context)
+
+
+
+
 
 def collections(request):
     category = Category.objects.filter(status = 0)

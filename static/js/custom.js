@@ -40,8 +40,9 @@ $(document).ready(function () {
                 csrfmiddlewaretoken:token
             },
             success: function (response) {
-                console.log(response)
                 alertify.success(response.status)
+                $("#cart-total-quantity").text(response.total_qty);
+               
             }
         });
     }); 
@@ -62,8 +63,9 @@ $(document).ready(function () {
                 csrfmiddlewaretoken:token
             },
             success: function (response) {
-                console.log(response)
                 alertify.success(response.status)
+                $("#cart-total-quantity").text(response.total_qty);
+             
             }
         });
     }); 

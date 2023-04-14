@@ -12,9 +12,9 @@
         <div class="col-md-12 mt-2">
             <h1>Our Specialised Amulets and Talisman</h1>
             <hr>
-            <div class="row">
+            <div class="row-fluid">
                 {% for item in category %}
-                <div class="col-md-3 shadow mt-2 border rounded">
+                <div class="col-md-3 shadow mx-3 border rounded">
                     <div class="card border-0">
                         <a href="{% url 'collectionsview' item.slug %}" <div class="card-body">
                             <div class="category-image">

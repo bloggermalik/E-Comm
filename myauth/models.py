@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from tinymce.models import HTMLField 
 
 
 
@@ -83,7 +84,7 @@ class Product(models.Model):
     
     small_description = models.CharField(max_length=250, null=False, blank=False)
     quantity = models.IntegerField( null=False, blank=False)
-    description = models.TextField(max_length=500, null=False, blank=False)
+    description = HTMLField(max_length=5000, null=False, blank=False)
     original_price = models.FloatField( null=False, blank=False)
     selling_price = models.FloatField( null=False, blank=False)
 
