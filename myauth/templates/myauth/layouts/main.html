@@ -72,6 +72,14 @@ footer {
 
     {% comment %} Alertify Js {% endcomment %}
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+   
+    <style>
+     .alertify-notifier .ajs-message.ajs-error{
+    color: #fff;
+    background: blue;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0,5);
+}
+    </style>
 
     <script> alertify.set('notifier','position', 'bottom-center');
         {% for msg in messages %}

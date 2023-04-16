@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rid8e*f&u(k8=6whqtrekof=@^!$yiu5%=a+(2it#y$+__981v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -84,28 +84,28 @@ WSGI_APPLICATION = 'customAuth.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'test',     
-#         'USER': 'postgres',  
-#         'PASSWORD': 'admin',
-#         'PORT': '5432',
-#         'HOST': 'localhost',
-
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',     
-        'USER': 'admin',  
+        'NAME': 'test',     
+        'USER': 'postgres',  
         'PASSWORD': 'admin',
-        'PORT': '',
+        'PORT': '5432',
         'HOST': 'localhost',
 
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'mydb',     
+#         'USER': 'admin',  
+#         'PASSWORD': 'admin',
+#         'PORT': '',
+#         'HOST': 'localhost',
+
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -141,7 +141,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -153,17 +153,24 @@ AUTH_USER_MODEL = 'myauth.CustomUser'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL ='/static/'
+# MEDIA ROOT
 
 MEDIA_URL ='/images/'
-
-MEDIA_ROOT = BASE_DIR /'static'
-
-import os
+MEDIA_ROOT = BASE_DIR / 'static/'
 
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-STATIC_ROOT=os.path.join(BASE_DIR,"/static/") 
+# STATIC ROOT
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT= BASE_DIR / "productionfiles"
+
+
+
+
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
