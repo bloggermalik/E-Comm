@@ -84,28 +84,28 @@ WSGI_APPLICATION = 'customAuth.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test',     
-        'USER': 'postgres',  
-        'PASSWORD': 'admin',
-        'PORT': '5432',
-        'HOST': 'localhost',
-
-    }
-}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'mydb',     
-#         'USER': 'admin',  
+#         'NAME': 'test',     
+#         'USER': 'postgres',  
 #         'PASSWORD': 'admin',
-#         'PORT': '',
+#         'PORT': '5432',
 #         'HOST': 'localhost',
 
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mydb',     
+        'USER': 'admin',  
+        'PASSWORD': 'admin',
+        'PORT': '',
+        'HOST': 'localhost',
+
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
